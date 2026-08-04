@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+@layer base {
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: #FFFFFF;
+    color: #1A1A2E;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply text-sm font-medium text-[#1A1A2E] hover:text-[#1A3A6B] transition-colors;
+  }
+  .btn-primary {
+    @apply inline-flex items-center gap-2 bg-[#1A3A6B] text-white text-sm font-semibold px-6 py-3 rounded transition-colors hover:bg-[#0f2548];
+  }
+  .btn-gold {
+    @apply inline-flex items-center gap-2 bg-[#C9A84C] text-white text-sm font-semibold px-6 py-3 rounded transition-colors hover:bg-[#b8943a];
+  }
+  .section-title {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    @apply text-3xl md:text-4xl font-bold text-[#1A3A6B] leading-tight;
+  }
+  .section-label {
+    @apply text-xs font-bold uppercase tracking-[0.25em] text-[#C9A84C];
+  }
+  .card {
+    @apply bg-white rounded-lg border border-[#E2E8F0] shadow-sm;
+  }
+  .gold-bar {
+    @apply block w-10 h-0.5 bg-[#C9A84C] mb-4;
+  }
+}
