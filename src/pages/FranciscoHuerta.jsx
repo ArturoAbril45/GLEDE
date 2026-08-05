@@ -35,7 +35,7 @@ export default function FranciscoHuerta() {
     { Icon: EyeOfProvidence,  titulo: t('fhm.a2_titulo'), desc: t('fhm.a2_desc') },
     { Icon: Anchor,           titulo: t('fhm.a3_titulo'), desc: t('fhm.a3_desc') },
     { Icon: Trowel,           titulo: t('fhm.a4_titulo'), desc: t('fhm.a4_desc') },
-    { Icon: StarOfSolomon,    titulo: t('fhm.a5_titulo'), desc: t('fhm.a5_desc') },
+    { Icon: StarOfSolomon,    titulo: t('fhm.a5_titulo'), desc: t('fhm.a5_desc'), link: 'https://demolay.org' },
     { Icon: MasonicLevel,     titulo: t('fhm.a6_titulo'), desc: t('fhm.a6_desc') },
   ]
 
@@ -226,10 +226,16 @@ export default function FranciscoHuerta() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {actividades.map((a, i) => (
               <Reveal key={a.titulo} delay={i * 100}>
-                <div className="card p-6 h-full">
+                <div className="card p-6 h-full flex flex-col">
                   <a.Icon size={32} color="#1A3A6B" className="mb-4" />
                   <h3 className="font-bold text-[#1A3A6B] text-sm mb-2">{a.titulo}</h3>
-                  <p className="text-xs text-[#6B7280] leading-relaxed">{a.desc}</p>
+                  <p className="text-xs text-[#6B7280] leading-relaxed flex-1">{a.desc}</p>
+                  {a.link && (
+                    <a href={a.link} target="_blank" rel="noopener noreferrer"
+                      className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-[#1A3A6B] hover:underline">
+                      <Globe size={11} /> demolay.org
+                    </a>
+                  )}
                 </div>
               </Reveal>
             ))}
