@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, Shield, BookOpen, Users, Landmark, Waves, Trees, MapPin, Star, Mail, Phone } from 'lucide-react'
+import { ArrowRight, Shield, BookOpen, Users, Landmark, Waves, Trees, MapPin, Star, Mail, Phone, Mountain } from 'lucide-react'
 import Reveal from '../components/Reveal'
 import { useTranslation } from '../context/LanguageContext'
-import { SquareAndCompass, EyeOfProvidence, MasonicLevel, Anchor, StarOfSolomon } from '../components/MasonicIcons'
+import { SquareAndCompass, EyeOfProvidence, MasonicLevel, Anchor, StarOfSolomon, Trowel } from '../components/MasonicIcons'
 
 export default function Inicio() {
   const { t } = useTranslation()
@@ -20,10 +20,17 @@ export default function Inicio() {
     { Icon: Anchor,          titulo: t('inicio.pilar3'), desc: t('inicio.pilar3_desc') },
   ]
 
-  const logias = [
+  const presencia = [
     { region: t('inicio.logia1_region'), ciudad: t('inicio.logia1_ciudad'), dir: t('inicio.logia1_dir'), Icon: Landmark },
-    { region: t('inicio.logia2_region'), ciudad: t('inicio.logia2_ciudad'), dir: t('inicio.logia2_dir'), Icon: StarOfSolomon, email: t('inicio.logia2_email'), phone: t('inicio.logia2_telefono') },
-    { region: t('inicio.logia3_region'), ciudad: t('inicio.logia3_ciudad'), dir: t('inicio.logia3_dir'), Icon: Trees },
+    { region: t('inicio.logia2_region'), ciudad: t('inicio.logia2_ciudad'), dir: t('inicio.logia2_dir'), Icon: Waves },
+    { region: t('inicio.logia3_region'), ciudad: t('inicio.logia3_ciudad'), dir: t('inicio.logia3_dir'), Icon: Mountain },
+    { region: t('inicio.logia4_region'), ciudad: t('inicio.logia4_ciudad'), dir: t('inicio.logia4_dir'), Icon: Trees },
+  ]
+
+  const regionalesGuayas = [
+    { nombre: t('inicio.rls1_nombre'), dir: t('inicio.rls1_dir'), Icon: SquareAndCompass },
+    { nombre: t('inicio.rls2_nombre'), dir: t('inicio.rls2_dir'), Icon: StarOfSolomon, email: t('inicio.rls2_email'), phone: t('inicio.rls2_telefono') },
+    { nombre: t('inicio.rls3_nombre'), dir: t('inicio.rls3_dir'), Icon: Trowel },
   ]
 
   const fhmData = [
@@ -215,7 +222,7 @@ export default function Inicio() {
         </div>
       </section>
 
-      {/* LOGIAS REGIONALES */}
+      {/* PRESENCIA NACIONAL — 4 zonas */}
       <section className="bg-[#F4F7FB] py-20 border-y border-[#E2E8F0]">
         <div className="max-w-7xl mx-auto px-6">
           <Reveal>
@@ -225,13 +232,37 @@ export default function Inicio() {
               <p className="mt-3 text-sm text-[#6B7280] max-w-xl mx-auto">{t('inicio.logias_desc')}</p>
             </div>
           </Reveal>
-          <div className="grid md:grid-cols-3 gap-6">
-            {logias.map((l, i) => (
-              <Reveal key={l.ciudad} delay={i * 120}>
-                <div className="card p-8 text-center">
-                  <l.Icon size={24} className="text-[#1A3A6B] mx-auto mb-4" />
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {presencia.map((l, i) => (
+              <Reveal key={l.ciudad} delay={i * 100}>
+                <div className="card p-7 text-center">
+                  <l.Icon size={22} className="text-[#1A3A6B] mx-auto mb-4" />
                   <p className="section-label mb-1">{l.region}</p>
                   <h3 className="font-semibold text-[#1A3A6B] text-base mb-2" style={{ fontFamily: 'Georgia, serif' }}>{l.ciudad}</h3>
+                  <p className="text-xs text-[#9CA3AF]">{l.dir}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* LOGIAS REGIONALES — 3 de Guayas */}
+      <section className="py-20 border-b border-[#E2E8F0]">
+        <div className="max-w-7xl mx-auto px-6">
+          <Reveal>
+            <div className="text-center mb-12">
+              <span className="section-label">{t('inicio.regionales_label')}</span>
+              <h2 className="section-title mt-3">{t('inicio.regionales_titulo')}</h2>
+              <p className="mt-3 text-sm text-[#6B7280] max-w-xl mx-auto">{t('inicio.regionales_desc')}</p>
+            </div>
+          </Reveal>
+          <div className="grid md:grid-cols-3 gap-6">
+            {regionalesGuayas.map((l, i) => (
+              <Reveal key={l.nombre} delay={i * 120}>
+                <div className="card p-8 text-center">
+                  <l.Icon size={26} color="#1A3A6B" className="mx-auto mb-4" />
+                  <h3 className="font-semibold text-[#1A3A6B] text-base mb-2" style={{ fontFamily: 'Georgia, serif' }}>{l.nombre}</h3>
                   <p className="text-xs text-[#9CA3AF]">{l.dir}</p>
                   {l.email && (
                     <div className="mt-3 flex flex-col gap-1.5">
