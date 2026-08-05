@@ -14,6 +14,8 @@ export default function FranciscoHuerta() {
     { k: t('fhm.f4_k'), v: t('fhm.f4_v') },
     { k: t('fhm.f5_k'), v: t('fhm.f5_v') },
     { k: t('fhm.f6_k'), v: t('fhm.f6_v') },
+    { k: t('fhm.f7_k'), v: t('fhm.f7_v') },
+    { k: t('fhm.f8_k'), v: t('fhm.f8_v') },
   ]
 
   const pilares = [

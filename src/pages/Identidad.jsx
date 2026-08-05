@@ -19,6 +19,8 @@ export default function Identidad() {
     [t('identidad.f4_k'), t('identidad.f4_v')],
     [t('identidad.f5_k'), t('identidad.f5_v')],
     [t('identidad.f6_k'), t('identidad.f6_v')],
+    [t('identidad.f7_k'), t('identidad.f7_v')],
+    [t('identidad.f8_k'), t('identidad.f8_v')],
   ]
 
   return (

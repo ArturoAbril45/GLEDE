@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { MapPin, Mail, ChevronDown } from 'lucide-react'
+import { MapPin, Mail, Phone, ChevronDown } from 'lucide-react'
 import { useTranslation } from '../context/LanguageContext'
 
 const navLinks = [
@@ -176,7 +176,13 @@ export default function Footer() {
             </div>
             <div className="flex items-center gap-2.5">
               <Mail size={13} className="text-[#C9A84C]" />
-              <span>contacto@glede.org.ec</span>
+              <a href="mailto:rlsfranciscohuertamontalvo69@glede.org.ec" className="hover:text-white transition-colors break-all text-xs">
+                rlsfranciscohuertamontalvo69@glede.org.ec
+              </a>
+            </div>
+            <div className="flex items-center gap-2.5">
+              <Phone size={13} className="text-[#C9A84C]" />
+              <a href="tel:0999937857" className="hover:text-white transition-colors">0999937857</a>
             </div>
           </div>
 
