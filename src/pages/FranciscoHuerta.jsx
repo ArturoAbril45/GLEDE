@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, MapPin, Landmark, Star, Calendar, CheckCircle, Users, BookOpen } from 'lucide-react'
+import { ArrowRight, MapPin, Landmark, Star, Calendar, CheckCircle, Users, BookOpen, Mail, Phone, Globe } from 'lucide-react'
 import Reveal from '../components/Reveal'
 import { useTranslation } from '../context/LanguageContext'
 import { SquareAndCompass, EyeOfProvidence, PlumbBob, MasonicLevel, Anchor, Trowel, StarOfSolomon } from '../components/MasonicIcons'
@@ -231,6 +231,99 @@ export default function FranciscoHuerta() {
                 </div>
               </Reveal>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SHRINERS */}
+      <section className="bg-[#1A3A6B] py-20 border-b border-white/10 relative overflow-hidden">
+        <div className="absolute right-[-30px] bottom-[-30px] opacity-[0.04] pointer-events-none hidden md:block">
+          <StarOfSolomon size={340} color="white" />
+        </div>
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <Reveal>
+            <div className="mb-12">
+              <span className="text-[#C9A84C] text-xs font-semibold uppercase tracking-widest">{t('shriners.label')}</span>
+              <span className="block w-10 h-0.5 bg-[#C9A84C] mt-3 mb-5" />
+              <h2 className="text-3xl md:text-4xl font-bold text-white" style={{ fontFamily: 'Georgia, serif' }}>{t('shriners.titulo')}</h2>
+              <p className="mt-4 text-[#94A3B8] text-sm max-w-2xl leading-relaxed">{t('shriners.desc')}</p>
+            </div>
+          </Reveal>
+          <div className="grid md:grid-cols-3 gap-6 mb-10">
+            {[
+              { Icon: SquareAndCompass, titulo: t('shriners.c1_titulo'), desc: t('shriners.c1_desc') },
+              { Icon: Anchor,           titulo: t('shriners.c2_titulo'), desc: t('shriners.c2_desc') },
+              { Icon: EyeOfProvidence,  titulo: t('shriners.c3_titulo'), desc: t('shriners.c3_desc') },
+            ].map((c, i) => (
+              <Reveal key={c.titulo} delay={i * 120}>
+                <div className="bg-white/5 border border-white/10 rounded-xl p-6 h-full">
+                  <c.Icon size={30} color="#C9A84C" className="mb-4" />
+                  <h3 className="font-bold text-white text-sm mb-2" style={{ fontFamily: 'Georgia, serif' }}>{c.titulo}</h3>
+                  <p className="text-[#94A3B8] text-xs leading-relaxed">{c.desc}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+          <Reveal delay={200}>
+            <div className="bg-[#C9A84C]/10 border border-[#C9A84C]/30 rounded-lg px-6 py-4">
+              <p className="text-[#C9A84C] text-xs leading-relaxed">{t('shriners.cta')}</p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* FOLLETO / CONTACTO */}
+      <section className="py-20 border-b border-[#E2E8F0]">
+        <div className="max-w-7xl mx-auto px-6">
+          <Reveal>
+            <div className="text-center mb-12">
+              <span className="section-label">{t('folleto.label')}</span>
+              <span className="gold-bar mt-3 mx-auto" />
+              <h2 className="section-title mt-1">{t('folleto.titulo')}</h2>
+            </div>
+          </Reveal>
+          <div className="grid md:grid-cols-2 gap-8">
+            <Reveal from="left">
+              <div className="bg-[#F4F7FB] border border-[#E2E8F0] rounded-xl p-8">
+                <Trowel size={28} color="#1A3A6B" className="mb-4" />
+                <h3 className="font-bold text-[#1A3A6B] text-base mb-2" style={{ fontFamily: 'Georgia, serif' }}>{t('folleto.logia_titulo')}</h3>
+                <p className="text-sm text-[#4B5563] leading-relaxed mb-4">{t('folleto.logia_desc')}</p>
+                <ul className="space-y-2">
+                  {[t('folleto.pilar1'), t('folleto.pilar2'), t('folleto.pilar3')].map((p, i) => (
+                    <li key={i} className="flex items-start gap-2 text-xs text-[#4B5563]">
+                      <span className="text-[#C9A84C] font-bold mt-0.5">·</span> {p}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
+            <Reveal from="right" delay={100}>
+              <div className="bg-[#1A3A6B] rounded-xl p-8 text-white h-full flex flex-col">
+                <MasonicLevel size={28} color="#C9A84C" className="mb-4" />
+                <h3 className="font-bold text-[#C9A84C] text-base mb-5" style={{ fontFamily: 'Georgia, serif' }}>{t('folleto.contacto_titulo')}</h3>
+                <div className="space-y-4 flex-1">
+                  <a href={`mailto:${t('folleto.contacto_email')}`} className="flex items-center gap-3 text-[#94A3B8] hover:text-white transition-colors">
+                    <div className="w-8 h-8 bg-[#C9A84C]/20 rounded flex items-center justify-center shrink-0">
+                      <Mail size={14} className="text-[#C9A84C]" />
+                    </div>
+                    <span className="text-xs break-all">{t('folleto.contacto_email')}</span>
+                  </a>
+                  <a href={`tel:${t('folleto.contacto_tel')}`} className="flex items-center gap-3 text-[#94A3B8] hover:text-white transition-colors">
+                    <div className="w-8 h-8 bg-[#C9A84C]/20 rounded flex items-center justify-center shrink-0">
+                      <Phone size={14} className="text-[#C9A84C]" />
+                    </div>
+                    <span className="text-xs">{t('folleto.contacto_tel')}</span>
+                  </a>
+                  <div className="flex items-center gap-3 text-[#94A3B8]">
+                    <div className="w-8 h-8 bg-[#C9A84C]/20 rounded flex items-center justify-center shrink-0">
+                      <Globe size={14} className="text-[#C9A84C]" />
+                    </div>
+                    <span className="text-xs">{t('folleto.contacto_jurisdiccion')}</span>
+                  </div>
+                </div>
+                <p className="mt-6 text-xs text-[#C9A84C]/70 border-t border-white/10 pt-4">{t('folleto.ingreso')}</p>
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>

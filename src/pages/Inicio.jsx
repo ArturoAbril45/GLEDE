@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, Shield, BookOpen, Users, Landmark, Waves, Trees, MapPin, Star } from 'lucide-react'
+import { ArrowRight, Shield, BookOpen, Users, Landmark, Waves, Trees, MapPin, Star, Mail, Phone } from 'lucide-react'
 import Reveal from '../components/Reveal'
 import { useTranslation } from '../context/LanguageContext'
-import { SquareAndCompass, EyeOfProvidence, MasonicLevel, Anchor } from '../components/MasonicIcons'
+import { SquareAndCompass, EyeOfProvidence, MasonicLevel, Anchor, StarOfSolomon } from '../components/MasonicIcons'
 
 export default function Inicio() {
   const { t } = useTranslation()
@@ -22,7 +22,7 @@ export default function Inicio() {
 
   const logias = [
     { region: t('inicio.logia1_region'), ciudad: t('inicio.logia1_ciudad'), dir: t('inicio.logia1_dir'), Icon: Landmark },
-    { region: t('inicio.logia2_region'), ciudad: t('inicio.logia2_ciudad'), dir: t('inicio.logia2_dir'), Icon: Waves },
+    { region: t('inicio.logia2_region'), ciudad: t('inicio.logia2_ciudad'), dir: t('inicio.logia2_dir'), Icon: StarOfSolomon, email: t('inicio.logia2_email'), phone: t('inicio.logia2_telefono') },
     { region: t('inicio.logia3_region'), ciudad: t('inicio.logia3_ciudad'), dir: t('inicio.logia3_dir'), Icon: Trees },
   ]
 
@@ -233,6 +233,16 @@ export default function Inicio() {
                   <p className="section-label mb-1">{l.region}</p>
                   <h3 className="font-semibold text-[#1A3A6B] text-base mb-2" style={{ fontFamily: 'Georgia, serif' }}>{l.ciudad}</h3>
                   <p className="text-xs text-[#9CA3AF]">{l.dir}</p>
+                  {l.email && (
+                    <div className="mt-3 flex flex-col gap-1.5">
+                      <a href={`mailto:${l.email}`} className="flex items-center justify-center gap-1.5 text-xs text-[#1A3A6B] hover:underline">
+                        <Mail size={11} /> {l.email}
+                      </a>
+                      <a href={`tel:${l.phone}`} className="flex items-center justify-center gap-1.5 text-xs text-[#9CA3AF]">
+                        <Phone size={11} /> {l.phone}
+                      </a>
+                    </div>
+                  )}
                 </div>
               </Reveal>
             ))}
