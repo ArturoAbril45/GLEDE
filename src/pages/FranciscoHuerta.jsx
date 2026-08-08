@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, MapPin, Landmark, Star, Calendar, CheckCircle, Users, BookOpen, Mail, Phone, Globe } from 'lucide-react'
+import { ArrowRight, MapPin, Landmark, Star, Calendar, CheckCircle, Users, BookOpen, Mail, Phone, Globe, HeartPulse, HandHeart, Shield, Sparkles, Lightbulb, GraduationCap, Heart, Award, Hospital, MessageSquare } from 'lucide-react'
 import Reveal from '../components/Reveal'
 import { useTranslation } from '../context/LanguageContext'
-import { SquareAndCompass, EyeOfProvidence, PlumbBob, MasonicLevel, Anchor, Trowel, StarOfSolomon } from '../components/MasonicIcons'
+import { SquareAndCompass, EyeOfProvidence, StarOfSolomon } from '../components/MasonicIcons'
 
 export default function FranciscoHuerta() {
   const { t } = useTranslation()
@@ -19,9 +19,9 @@ export default function FranciscoHuerta() {
   ]
 
   const pilares = [
-    { Icon: EyeOfProvidence, titulo: t('fhm.p1_titulo'), desc: t('fhm.p1_desc') },
-    { Icon: MasonicLevel,    titulo: t('fhm.p2_titulo'), desc: t('fhm.p2_desc') },
-    { Icon: PlumbBob,        titulo: t('fhm.p3_titulo'), desc: t('fhm.p3_desc') },
+    { Icon: Lightbulb,     titulo: t('fhm.p1_titulo'), desc: t('fhm.p1_desc') },
+    { Icon: GraduationCap, titulo: t('fhm.p2_titulo'), desc: t('fhm.p2_desc') },
+    { Icon: Heart,         titulo: t('fhm.p3_titulo'), desc: t('fhm.p3_desc') },
   ]
 
   const timeline = [
@@ -31,12 +31,12 @@ export default function FranciscoHuerta() {
   ]
 
   const actividades = [
-    { Icon: SquareAndCompass, titulo: t('fhm.a1_titulo'), desc: t('fhm.a1_desc') },
-    { Icon: EyeOfProvidence,  titulo: t('fhm.a2_titulo'), desc: t('fhm.a2_desc') },
-    { Icon: Anchor,           titulo: t('fhm.a3_titulo'), desc: t('fhm.a3_desc') },
-    { Icon: Trowel,           titulo: t('fhm.a4_titulo'), desc: t('fhm.a4_desc') },
-    { Icon: StarOfSolomon,    titulo: t('fhm.a5_titulo'), desc: t('fhm.a5_desc'), link: 'https://demolay.org' },
-    { Icon: MasonicLevel,     titulo: t('fhm.a6_titulo'), desc: t('fhm.a6_desc') },
+    { Icon: Calendar,      titulo: t('fhm.a1_titulo'), desc: t('fhm.a1_desc') },
+    { Icon: MessageSquare, titulo: t('fhm.a2_titulo'), desc: t('fhm.a2_desc') },
+    { Icon: HeartPulse,    titulo: t('fhm.a3_titulo'), desc: t('fhm.a3_desc') },
+    { Icon: HandHeart,     titulo: t('fhm.a4_titulo'), desc: t('fhm.a4_desc') },
+    { Icon: Shield,        titulo: t('fhm.a5_titulo'), desc: t('fhm.a5_desc'), link: 'https://demolay.org' },
+    { Icon: Sparkles,      titulo: t('fhm.a6_titulo'), desc: t('fhm.a6_desc') },
   ]
 
   return (
@@ -48,7 +48,8 @@ export default function FranciscoHuerta() {
         <div className="absolute right-[-20px] top-1/2 -translate-y-1/2 opacity-[0.06] pointer-events-none hidden md:block">
           <SquareAndCompass size={380} color="white" />
         </div>
-        <div className="max-w-4xl mx-auto px-5 py-20 md:py-28 relative z-10">
+        <div className="max-w-6xl mx-auto px-5 py-20 md:py-28 relative z-10 grid md:grid-cols-[1fr_260px] gap-10 items-center">
+          <div>
           <Reveal from="fade">
             <div className="flex flex-wrap items-center gap-3 mb-5">
               <span className="inline-flex items-center bg-[#C9A84C]/20 border border-[#C9A84C]/40 text-[#C9A84C] text-xs font-semibold px-3 py-1.5 rounded">
@@ -74,6 +75,12 @@ export default function FranciscoHuerta() {
               <Link to="/masoneria" className="inline-flex items-center justify-center gap-2 text-sm font-semibold text-[#94A3B8] border border-white/20 px-6 py-3 rounded hover:bg-white/5 transition-colors">
                 {t('fhm.btn_masoneria')}
               </Link>
+            </div>
+          </Reveal>
+          </div>
+          <Reveal from="right" delay={200}>
+            <div className="hidden md:flex items-center justify-center">
+              <img src="/folleto/image3.png" alt="Símbolo Masónico — R.L.S. Francisco Huerta Montalvo" className="w-80 h-80 object-contain opacity-95" />
             </div>
           </Reveal>
         </div>
@@ -259,9 +266,9 @@ export default function FranciscoHuerta() {
           </Reveal>
           <div className="grid md:grid-cols-3 gap-6 mb-10">
             {[
-              { Icon: SquareAndCompass, titulo: t('shriners.c1_titulo'), desc: t('shriners.c1_desc') },
-              { Icon: Anchor,           titulo: t('shriners.c2_titulo'), desc: t('shriners.c2_desc') },
-              { Icon: EyeOfProvidence,  titulo: t('shriners.c3_titulo'), desc: t('shriners.c3_desc') },
+              { Icon: Award,    titulo: t('shriners.c1_titulo'), desc: t('shriners.c1_desc') },
+              { Icon: Hospital, titulo: t('shriners.c2_titulo'), desc: t('shriners.c2_desc') },
+              { Icon: Globe,    titulo: t('shriners.c3_titulo'), desc: t('shriners.c3_desc') },
             ].map((c, i) => (
               <Reveal key={c.titulo} delay={i * 120}>
                 <div className="bg-white/5 border border-white/10 rounded-xl p-6 h-full">
@@ -293,7 +300,7 @@ export default function FranciscoHuerta() {
           <div className="grid md:grid-cols-2 gap-8">
             <Reveal from="left">
               <div className="bg-[#F4F7FB] border border-[#E2E8F0] rounded-xl p-8">
-                <Trowel size={28} color="#1A3A6B" className="mb-4" />
+                <Landmark size={28} color="#1A3A6B" className="mb-4" />
                 <h3 className="font-bold text-[#1A3A6B] text-base mb-2" style={{ fontFamily: 'Georgia, serif' }}>{t('folleto.logia_titulo')}</h3>
                 <p className="text-sm text-[#4B5563] leading-relaxed mb-4">{t('folleto.logia_desc')}</p>
                 <ul className="space-y-2">
@@ -307,7 +314,7 @@ export default function FranciscoHuerta() {
             </Reveal>
             <Reveal from="right" delay={100}>
               <div className="bg-[#1A3A6B] rounded-xl p-8 text-white h-full flex flex-col">
-                <MasonicLevel size={28} color="#C9A84C" className="mb-4" />
+                <Mail size={28} color="#C9A84C" className="mb-4" />
                 <h3 className="font-bold text-[#C9A84C] text-base mb-5" style={{ fontFamily: 'Georgia, serif' }}>{t('folleto.contacto_titulo')}</h3>
                 <div className="space-y-4 flex-1">
                   <a href={`mailto:${t('folleto.contacto_email')}`} className="flex items-center gap-3 text-[#94A3B8] hover:text-white transition-colors">

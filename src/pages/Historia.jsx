@@ -139,13 +139,45 @@ export default function Historia() {
       </section>
 
       <section className="py-16">
-        <Reveal>
-          <div className="max-w-4xl mx-auto px-6 text-center">
-            <span className="section-label">{t('historia.cmi_label')}</span>
-            <h2 className="section-title mt-3 mb-6">{t('historia.cmi_titulo')}</h2>
-            <p className="text-sm text-[#4B5563] leading-relaxed max-w-2xl mx-auto">{t('historia.cmi_desc')}</p>
-          </div>
-        </Reveal>
+        <div className="max-w-5xl mx-auto px-6">
+          <Reveal>
+            <div className="grid md:grid-cols-[160px_1fr] gap-10 items-center">
+              <img src="/folleto/image2.png" alt="Confederación Masónica Interamericana" className="w-36 h-36 object-contain mx-auto" />
+              <div>
+                <span className="section-label">{t('historia.cmi_label')}</span>
+                <h2 className="section-title mt-3 mb-4">{t('historia.cmi_titulo')}</h2>
+                <p className="text-sm text-[#4B5563] leading-relaxed">{t('historia.cmi_desc')}</p>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* CANTINFLAS — Cita masónica */}
+      <section className="bg-[#F4F7FB] py-16 border-y border-[#E2E8F0]">
+        <div className="max-w-5xl mx-auto px-6">
+          <Reveal>
+            <div className="grid md:grid-cols-[240px_1fr] gap-10 items-center">
+              <div className="rounded-xl overflow-hidden shadow-lg shrink-0">
+                <img src="/folleto/image14.png" alt="Mario Moreno Cantinflas — Maestro Masón" className="w-full h-60 object-cover object-top" />
+                <div className="bg-[#1A3A6B] px-4 py-2 text-center">
+                  <p className="text-[#C9A84C] text-[10px] uppercase tracking-widest">Mario Moreno · Cantinflas</p>
+                  <p className="text-white/70 text-[10px]">Maestro Masón · Grado 33°</p>
+                </div>
+              </div>
+              <div>
+                <span className="section-label">Masones célebres</span>
+                <span className="gold-bar mt-3" />
+                <blockquote className="mt-4 text-lg md:text-xl font-bold text-[#1A3A6B] leading-snug" style={{ fontFamily: 'Georgia, serif' }}>
+                  "La masonería no es una religión, es una escuela de vida que te enseña a ser un hombre mejor."
+                </blockquote>
+                <p className="mt-4 text-sm text-[#4B5563] leading-relaxed">
+                  Entre los masones célebres de la historia universal destacan Simón Bolívar, José de San Martín, Eloy Alfaro, José Martí, George Washington, Benjamín Franklin, Wolfgang Amadeus Mozart y Alexander Fleming. Hombres que, formados en los principios de la Orden, transformaron la realidad de sus épocas y dejaron un legado de libertad, justicia y progreso para la humanidad.
+                </p>
+              </div>
+            </div>
+          </Reveal>
+        </div>
       </section>
 
       {/* REVISTA DESDE EL ANDAMIO */}

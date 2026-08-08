@@ -1,17 +1,17 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Scale, Lightbulb, Heart, Equal } from 'lucide-react'
 import Reveal from '../components/Reveal'
 import { useTranslation } from '../context/LanguageContext'
-import { PlumbBob, EyeOfProvidence, Anchor, StarOfSolomon, SquareAndCompass } from '../components/MasonicIcons'
+import { SquareAndCompass } from '../components/MasonicIcons'
 
 export default function Masoneria() {
   const { t } = useTranslation()
 
   const principios = [
-    { Icon: PlumbBob,        titulo: t('masoneria.p1_titulo'), desc: t('masoneria.p1_desc') },
-    { Icon: EyeOfProvidence, titulo: t('masoneria.p2_titulo'), desc: t('masoneria.p2_desc') },
-    { Icon: Anchor,          titulo: t('masoneria.p3_titulo'), desc: t('masoneria.p3_desc') },
-    { Icon: StarOfSolomon,   titulo: t('masoneria.p4_titulo'), desc: t('masoneria.p4_desc') },
+    { Icon: Scale,     titulo: t('masoneria.p1_titulo'), desc: t('masoneria.p1_desc') },
+    { Icon: Lightbulb, titulo: t('masoneria.p2_titulo'), desc: t('masoneria.p2_desc') },
+    { Icon: Heart,     titulo: t('masoneria.p3_titulo'), desc: t('masoneria.p3_desc') },
+    { Icon: Equal,     titulo: t('masoneria.p4_titulo'), desc: t('masoneria.p4_desc') },
   ]
 
   const noEs = [
@@ -62,6 +62,28 @@ export default function Masoneria() {
             </div>
           </Reveal>
         </div>
+      </section>
+
+      {/* IMAGEN ATMOSFÉRICA — Arte Real */}
+      <section className="py-0">
+        <Reveal from="fade">
+          <div className="relative w-full h-64 md:h-80 overflow-hidden">
+            <img
+              src="/folleto/image11.png"
+              alt="El Arte Real — taller masónico"
+              className="w-full h-full object-cover object-center"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0f2347]/90 via-[#0f2347]/50 to-transparent" />
+            <div className="absolute inset-0 flex items-center">
+              <div className="px-8 md:px-16 max-w-lg">
+                <p className="text-[#C9A84C] text-[10px] uppercase tracking-widest mb-3">Arte Real · Simbolismo</p>
+                <blockquote className="text-white text-xl md:text-2xl font-bold leading-snug" style={{ fontFamily: 'Georgia, serif' }}>
+                  "La Masonería transforma las herramientas del constructor en instrumentos del alma."
+                </blockquote>
+              </div>
+            </div>
+          </div>
+        </Reveal>
       </section>
 
       <section className="bg-[#F4F7FB] py-16 border-y border-[#E2E8F0]">

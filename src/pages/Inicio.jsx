@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, Shield, BookOpen, Users, Landmark, Waves, Trees, MapPin, Star, Mail, Phone, Mountain } from 'lucide-react'
+import { ArrowRight, Shield, BookOpen, Users, Landmark, Waves, Trees, MapPin, Star, Mail, Phone, Mountain, Eye, Heart } from 'lucide-react'
 import Reveal from '../components/Reveal'
 import { useTranslation } from '../context/LanguageContext'
-import { SquareAndCompass, EyeOfProvidence, MasonicLevel, Anchor, StarOfSolomon, Trowel } from '../components/MasonicIcons'
+import { SquareAndCompass } from '../components/MasonicIcons'
 
 export default function Inicio() {
   const { t } = useTranslation()
@@ -15,22 +15,28 @@ export default function Inicio() {
   ]
 
   const pilares = [
-    { Icon: EyeOfProvidence, titulo: t('inicio.pilar1'), desc: t('inicio.pilar1_desc') },
-    { Icon: MasonicLevel,    titulo: t('inicio.pilar2'), desc: t('inicio.pilar2_desc') },
-    { Icon: Anchor,          titulo: t('inicio.pilar3'), desc: t('inicio.pilar3_desc') },
+    { Icon: Eye,      titulo: t('inicio.pilar1'), desc: t('inicio.pilar1_desc') },
+    { Icon: BookOpen, titulo: t('inicio.pilar2'), desc: t('inicio.pilar2_desc') },
+    { Icon: Heart,    titulo: t('inicio.pilar3'), desc: t('inicio.pilar3_desc') },
   ]
 
   const presencia = [
-    { region: t('inicio.logia1_region'), ciudad: t('inicio.logia1_ciudad'), dir: t('inicio.logia1_dir'), Icon: Landmark },
-    { region: t('inicio.logia2_region'), ciudad: t('inicio.logia2_ciudad'), dir: t('inicio.logia2_dir'), Icon: Waves },
-    { region: t('inicio.logia3_region'), ciudad: t('inicio.logia3_ciudad'), dir: t('inicio.logia3_dir'), Icon: Mountain },
-    { region: t('inicio.logia4_region'), ciudad: t('inicio.logia4_ciudad'), dir: t('inicio.logia4_dir'), Icon: Trees },
+    { region: t('inicio.logia1_region'), ciudad: t('inicio.logia1_ciudad'), dir: t('inicio.logia1_dir'), Icon: Landmark, provincias: [] },
+    { region: t('inicio.logia2_region'), ciudad: t('inicio.logia2_ciudad'), dir: t('inicio.logia2_dir'), Icon: Waves,
+      provincias: ['Manabí', 'Guayas', 'Santa Elena', 'Sto. Domingo de los Tsáchilas'],
+    },
+    { region: t('inicio.logia3_region'), ciudad: t('inicio.logia3_ciudad'), dir: t('inicio.logia3_dir'), Icon: Mountain,
+      provincias: ['Pichincha', 'Imbabura', 'Tungurahua', 'Cotopaxi', 'Chimborazo', 'Loja', 'Azuay'],
+    },
+    { region: t('inicio.logia4_region'), ciudad: t('inicio.logia4_ciudad'), dir: t('inicio.logia4_dir'), Icon: Trees,
+      provincias: ['El Puyo — Pastaza'],
+    },
   ]
 
   const regionalesGuayas = [
-    { nombre: t('inicio.rls1_nombre'), dir: t('inicio.rls1_dir'), Icon: SquareAndCompass },
-    { nombre: t('inicio.rls2_nombre'), dir: t('inicio.rls2_dir'), Icon: StarOfSolomon, email: t('inicio.rls2_email'), phone: t('inicio.rls2_telefono') },
-    { nombre: t('inicio.rls3_nombre'), dir: t('inicio.rls3_dir'), Icon: Trowel },
+    { numero: '49', nombre: t('inicio.rls1_nombre'), dir: t('inicio.rls1_dir') },
+    { numero: '69', nombre: t('inicio.rls2_nombre'), dir: t('inicio.rls2_dir'), email: t('inicio.rls2_email'), phone: t('inicio.rls2_telefono') },
+    { numero: '75', nombre: t('inicio.rls3_nombre'), dir: t('inicio.rls3_dir') },
   ]
 
   const fhmData = [
@@ -155,10 +161,10 @@ export default function Inicio() {
           </Reveal>
           <Reveal from="right" delay={100}>
             <div className="bg-white/5 border border-white/10 rounded-lg p-8 text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#C9A84C]/20 mb-5">
-                <MapPin size={28} className="text-[#C9A84C]" />
+              <div className="w-36 h-36 rounded-full bg-white mx-auto mb-5 flex items-center justify-center p-1 shadow-lg">
+                <img src="/folleto/image1.png" alt="Sello Gran Logia Equinoccial del Ecuador" className="w-full h-full object-contain rounded-full" />
               </div>
-              <p className="text-[#C9A84C] text-xs font-semibold uppercase tracking-widest mb-2">Guayaquil</p>
+              <p className="text-[#C9A84C] text-xs font-semibold uppercase tracking-widest mb-2">Guayaquil · Ecuador</p>
               <h3 className="text-white text-xl font-bold" style={{ fontFamily: 'Georgia, serif' }}>Provincia del Guayas</h3>
               <p className="text-[#94A3B8] text-xs mt-3">Representación oficial de la Gran Logia Equinoccial del Ecuador en la provincia del Guayas</p>
             </div>
@@ -235,11 +241,34 @@ export default function Inicio() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {presencia.map((l, i) => (
               <Reveal key={l.ciudad} delay={i * 100}>
-                <div className="card p-7 text-center">
+                <div className="card p-7 text-center flex flex-col">
                   <l.Icon size={22} className="text-[#1A3A6B] mx-auto mb-4" />
                   <p className="section-label mb-1">{l.region}</p>
                   <h3 className="font-semibold text-[#1A3A6B] text-base mb-2" style={{ fontFamily: 'Georgia, serif' }}>{l.ciudad}</h3>
                   <p className="text-xs text-[#9CA3AF]">{l.dir}</p>
+                  {l.provincias && l.provincias.length > 0 && (
+                    <div className="mt-4 pt-3 border-t border-[#E2E8F0]">
+                      <p className="text-[9px] uppercase tracking-widest text-[#9CA3AF] mb-2">Provincias</p>
+                      <div className="flex flex-wrap justify-center gap-1">
+                        {l.provincias.map(prov => (
+                          <span key={prov} className="text-[10px] bg-[#EEF2FF] text-[#1A3A6B] px-2 py-0.5 rounded-full">{prov}</span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                  {l.logias && l.logias.length > 0 && (
+                    <div className="mt-3 pt-3 border-t border-[#E2E8F0]">
+                      <p className="text-[9px] uppercase tracking-widest text-[#9CA3AF] mb-2">Logias</p>
+                      {l.logias.map(logia => logia.link ? (
+                        <Link key={logia.nombre} to={logia.link}
+                          className="block text-[11px] text-[#1A3A6B] hover:underline py-0.5 font-semibold">
+                          {logia.nombre} ↗
+                        </Link>
+                      ) : (
+                        <p key={logia.nombre} className="text-[11px] text-[#4B5563] py-0.5">{logia.nombre}</p>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </Reveal>
             ))}
@@ -261,7 +290,9 @@ export default function Inicio() {
             {regionalesGuayas.map((l, i) => (
               <Reveal key={l.nombre} delay={i * 120}>
                 <div className="card p-8 text-center">
-                  <l.Icon size={26} color="#1A3A6B" className="mx-auto mb-4" />
+                  <div className="w-14 h-14 rounded-full border-2 border-[#1A3A6B] flex items-center justify-center mx-auto mb-4">
+                    <span className="text-[#1A3A6B] text-lg font-bold" style={{ fontFamily: 'Georgia, serif' }}>{l.numero}</span>
+                  </div>
                   <h3 className="font-semibold text-[#1A3A6B] text-base mb-2" style={{ fontFamily: 'Georgia, serif' }}>{l.nombre}</h3>
                   <p className="text-xs text-[#9CA3AF]">{l.dir}</p>
                   {l.email && (
